@@ -1,6 +1,6 @@
 export const APP_CONFIG = {
   // Replace with the wallet address that should receive payment.
-  merchantWallet: "0xd08c6432FbD2c066e2a2B5B2b1546F5a05e0B8e2",
+  merchantWallet: "0x44d071d0de1f5fa315bd00b8750f86d75822b7c4",
 
   // BNB Smart Chain Mainnet
   chainIdHex: "0x38",
