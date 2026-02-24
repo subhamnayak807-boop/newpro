@@ -1,0 +1,236 @@
+:root {
+  --bg-1: #07121f;
+  --bg-2: #0f2337;
+  --bg-3: #123f36;
+  --panel: rgba(8, 23, 39, 0.74);
+  --panel-2: rgba(12, 34, 54, 0.78);
+  --text: #e4edf7;
+  --muted: #9cb2c9;
+  --line: rgba(181, 209, 235, 0.24);
+  --accent: #18d0a2;
+  --accent-2: #17a2f8;
+  --danger: #ff6f6f;
+  --ok: #5cf2a3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 5% 10%, rgba(23, 162, 248, 0.25), transparent 32%),
+    radial-gradient(circle at 92% 20%, rgba(24, 208, 162, 0.2), transparent 34%),
+    linear-gradient(130deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
+
+.checkout-shell {
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  padding: 28px;
+  box-shadow: 0 16px 42px rgba(4, 9, 17, 0.48);
+}
+
+.panel-side {
+  background: var(--panel-2);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #9ce6d5;
+  font-size: 0.84rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4.4vw, 2.7rem);
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.lead {
+  color: var(--muted);
+  margin: 12px 0 24px;
+  max-width: 54ch;
+}
+
+.wallet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-family: "Space Grotesk", sans-serif;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.56;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background: linear-gradient(130deg, #11bfe9, #1692f4 55%, #1e76ff);
+  color: #f6fbff;
+  box-shadow: 0 12px 24px rgba(20, 137, 241, 0.34);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #d8e8f8;
+  border: 1px solid rgba(199, 222, 245, 0.35);
+}
+
+.btn-pay {
+  margin-top: 18px;
+  width: 100%;
+  padding: 14px 16px;
+  background: linear-gradient(110deg, #1bcf93, #14b6a4 48%, #1ca6d5);
+  color: #f4feff;
+  box-shadow: 0 12px 24px rgba(22, 190, 156, 0.35);
+}
+
+.status-box {
+  margin-top: 16px;
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #d3e4f6;
+  background: rgba(11, 35, 54, 0.52);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger);
+  box-shadow: 0 0 0 6px rgba(255, 111, 111, 0.14);
+}
+
+.status-box.connected .dot {
+  background: var(--ok);
+  box-shadow: 0 0 0 6px rgba(92, 242, 163, 0.18);
+}
+
+.message {
+  margin-top: 14px;
+  min-height: 23px;
+  color: var(--muted);
+}
+
+.message.success {
+  color: #90f6c4;
+}
+
+.message.error {
+  color: #ff9090;
+}
+
+.meta-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.meta-list li {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  background: rgba(9, 26, 41, 0.48);
+}
+
+.meta-list strong {
+  color: #dcedfd;
+  font-weight: 600;
+}
+
+.tip {
+  margin: 18px 0 0;
+  color: #8fd9cb;
+  font-size: 0.94rem;
+}
+
+.thanks-shell {
+  grid-template-columns: 1fr;
+  max-width: 620px;
+}
+
+.thanks-panel {
+  text-align: center;
+}
+
+.thanks-panel .btn {
+  margin-top: 12px;
+}
+
+@media (max-width: 860px) {
+  .checkout-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 22px;
+  }
+}
